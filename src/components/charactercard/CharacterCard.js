@@ -13,6 +13,3 @@ const CharacterCard = () => {
 };
 
 export default CharacterCard;
-
-//<i className="character-card far fa-star "></i>
-// <img className="character-card__character-image" src={`${spiderManImage}`} alt="characterName"/>

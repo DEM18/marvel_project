@@ -1,14 +1,13 @@
 import React from 'react';
 
 import Header from 'components/header/Header';
-import CharacterCard from 'components/characterCard/CharacterCard';
-
+import CharactersGrid from 'components/charactersgrid/CharactersGrid';
 class App extends React.Component {
     render() {
         return(
             <div>
                 <Header/>
-                <CharacterCard/>
+                <CharactersGrid/>
             </div>
         )
     }
