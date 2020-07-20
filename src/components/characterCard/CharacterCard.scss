@@ -1,0 +1,32 @@
+.character-card {
+    height: 400px;
+    position: relative;
+    z-index: 0;
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%),
+    url('../../assets/images/spider-man.jpg');
+    background-size: cover;
+    background-position: top;
+    background-image: top;
+    background-repeat: no-repeat;
+    width: 100%;
+
+    &__character-name {
+        font-size: 15px;
+        position: absolute;
+        color: white;
+        z-index: 1;
+        bottom: 15px;
+        left: 15px;
+        font-weight: bold;
+    }
+}
+
+.far.fa-star.character-card::before {
+    position: absolute;
+    color: azure;
+    font-size: 15px;
+    right: 15px;
+    top: 10px;
+}
+
