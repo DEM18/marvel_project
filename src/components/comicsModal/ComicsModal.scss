@@ -1,0 +1,31 @@
+.comics-modal {
+    padding:10px;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 300px;
+
+    &__btn-close-box {
+        font-size: 15px;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10px;
+        color:grey;
+    }
+
+    &__btn-close {
+        background: none;
+        border: 0;
+        color: grey;
+    }
+
+    &__title {
+        font-size: 25px;
+        font-weight: bold;
+        color: grey;
+        margin-bottom: 15px;
+    }
+
+    &__comic {
+        margin-bottom: 10px;
+    }
+}
