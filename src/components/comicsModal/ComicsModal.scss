@@ -1,8 +1,28 @@
+.comics-modal-wrapper {
+    position: fixed;  
+    width: 100%;  
+    height: 100%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5); 
+}
+
 .comics-modal {
     padding:10px;
     overflow: hidden;
     overflow-y: scroll;
     max-height: 300px;
+    position: absolute;  
+    left: 5%;  
+    right: 5%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+    border-radius: 15px;  
+    background: white; 
 
     &__btn-close-box {
         font-size: 15px;

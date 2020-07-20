@@ -1,12 +1,13 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './ComicCard.scss';
 import spiderManImage from 'assets/images/spider-man.jpg';
 
-const ComicCard = () => {
+const ComicCard = ( props ) => {
     return(
-        <div className="comic-card">
-            <div className="comic-card__left-column">
+        <Link to="/character/comics/2">
+            <div className="comic-card">
+                <div className="comic-card__left-column">
                 <div className="comic-card__image-box">
                     <img className="comic-card__image" src={spiderManImage} alt="spider man "></img> 
                 </div>
@@ -22,6 +23,7 @@ const ComicCard = () => {
                 </p>
             </div>
         </div>
+        </Link>
     )
 };
 
