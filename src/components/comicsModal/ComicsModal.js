@@ -5,9 +5,15 @@ import './ComicsModal.scss';
 import ComicCard from 'components/comiccard/ComicCard';
 
 
-const ComicsModal = ( props ) => {
-    const { onCloseBtnClick } = props;
-    return( 
+class ComicsModal extends React.Component {
+
+    componentDidMount() {
+        //llamar al action creator y traer el personaje 
+    }
+    render() {
+        const { onCloseBtnClick, charactedIdSelected } = this.props;
+        console.log("ComicModal charactedIdSelected", charactedIdSelected);
+        return( 
             <div className="comics-modal-wrapper">
                 <div className="comics-modal">
                     <div className="comics-modal__btn-close-box">
@@ -27,6 +33,7 @@ const ComicsModal = ( props ) => {
                 </div>
             </div>
         );
+    }
 };
 
 export default ComicsModal;

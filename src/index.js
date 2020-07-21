@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import AppRouter from 'components/AppRouter';
 import './index.scss';
+import AppRouter from 'components/AppRouter';
+import store from 'store/index';
 
-ReactDOM.render( <AppRouter/>, document.querySelector( "#root" ));
+
+
+ReactDOM.render( 
+    <Provider store={ store }>
+        <AppRouter/> 
+    </Provider>,
+    document.querySelector( "#root" ));
