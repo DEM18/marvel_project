@@ -1,33 +1,70 @@
 import React from 'react';
+import { getComicById } from 'actions/index';
+import { connect } from 'react-redux';
 
-import spiderManImage from 'assets/images/spider-man.jpg';
 import './ComicCardDetail.scss';
 
-const ComicCardDetail = () => {
-    return(
-        <div className="comic-card-detail">
-            <div className="comic-card-detail__left-column">
-                <div className="comic-card-detail__image-box">
-                    <img className="comic-card-detail__image" src={spiderManImage} alt="spider man "></img> 
-                </div>
+const mapStateToProps = ( state ) => {
+    return {
+        comic: state.charactersReducer.comicById
+    };
+}
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+        getComicById: comicId => dispatch( getComicById( comicId ) )
+    };
+}
+
+class ComicCardDetail extends React.Component {
+    
+
+    componentDidMount(){
+        this.props.getComicById( this.props.match.params.comicId );
+    }
+
+    render() {
+        return(
+            <div className="comic-card-detail">
+                {this.props.comic.map( comic => 
+                    <React.Fragment key={ comic.id }>
+                        <div className="comic-card-detail__left-column" >
+                            <div className="comic-card-detail__image-box">
+                                <img className="comic-card-detail__image" 
+                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} 
+                                    alt={`${comic.title}`}>
+                                </img>
+                            </div>
+                        </div>
+                        <div className="comic-card-detail__right-column">
+                            <div className="comic-card-detail__title">
+                                <span className="comic-card-detail__title--text">{ comic.title }</span>
+                            </div>
+                            <ul className="comic-card-detail__details-list">
+                                <li className="comic-card-detail__item">
+                                    { comic.dates[0].date }
+                                </li>
+                                <li className="comic-card-detail__item">
+                                    Writer:{ comic.creators.items[3].name }
+                                </li>
+                                <li className="comic-card-detail__item">
+                                    Penciler:{ comic.creators.items[1].name }</li>
+                                <li className="comic-card-detail__item">
+                                    Cover Artist:{ comic.creators.items[4].name }
+                                </li>
+                            </ul>
+                            <p className="comic-card-detail__description">
+                                { comic.description }
+                            </p>
+                        </div>
+                    </React.Fragment>
+                )}
             </div>
-            <div className="comic-card-detail__right-column">
-                <div className="comic-card-detail__title">
-                    <span className="comic-card-detail__title--text">Spider-man</span>
-                </div>
-                <ul className="comic-card-detail__details-list">
-                    <li className="comic-card-detail__item">Published:May 29,2019</li>
-                    <li className="comic-card-detail__item">Writer:Nick Spencer</li>
-                    <li className="comic-card-detail__item">Penciler:Humberto Ramos</li>
-                    <li className="comic-card-detail__item">Cover Artist:Humberto Ramos</li>
-                </ul>
-                <p className="comic-card-detail__description">
-                    It is a long established fact that a reader will be distracted 
-                    by the readable content of a page when looking at its layout. 
-                </p>
-            </div>
-    </div>
-    )
+        );
+    }
 };
 
-export default ComicCardDetail;
+export default connect ( mapStateToProps, mapDispatchToProps )( ComicCardDetail );
+
+
+

@@ -11,10 +11,10 @@
 }
 
 .comics-modal {
-    padding:10px;
+    padding:15px;
     overflow: hidden;
     overflow-y: scroll;
-    max-height: 300px;
+    max-height: 500px;
     position: absolute;  
     left: 5%;  
     right: 5%;  
@@ -30,6 +30,8 @@
         justify-content: flex-end;
         padding-right: 10px;
         color:grey;
+        position: fixed;
+        right: 60px;
     }
 
     &__btn-close {

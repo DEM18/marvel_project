@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getCharacters } from 'actions/index';
+import { getCharacters, getCharactersByName } from 'actions/index';
 import CharacterCard from 'components/charactercard/CharacterCard';
 import ComicsModal from 'components/comicsModal/ComicsModal';
 import './CharactersGrid.scss';
@@ -11,9 +11,10 @@ const mapStateToProps = ( state ) => {
     };
 };
 
-const mapDispatchToProos = ( dispatch ) => {
+const mapDispatchToProps = ( dispatch ) => {
     return {
-        getCharacters: () => dispatch( getCharacters() )
+        getCharacters: () => dispatch( getCharacters() ),
+        getCharactersByName: characterName => dispatch( getCharactersByName( characterName ))
     };
 }
 
@@ -47,7 +48,15 @@ class CharactersGrid extends React.Component {
         this.props.getCharacters();
     }
 
+    componentDidUpdate( prevProps ) {
+        console.log("se ejecura componentDidUpdate");
+        console.log("params", this.props.match.params.characterName);
+     
+        
+    }
+
     render(){
+        console.log("this.props.charactergrid", this.props);
         return(
             <div className="characters-grid">
                 { this.props.characters.map( character => (
@@ -71,4 +80,4 @@ class CharactersGrid extends React.Component {
 };
 
 
-export default connect( mapStateToProps, mapDispatchToProos )( CharactersGrid );
+export default connect( mapStateToProps, mapDispatchToProps )( CharactersGrid );

@@ -11,7 +11,8 @@ const AppRouter = () => (
         <div>
             <Header/>
             <Switch>
-                <Route path="/" component={ CharactersGrid } exact={true} />
+                <Route path="/characters" component={ CharactersGrid } exact={true} />
+                <Route path="/characters/:characterName" component={ CharactersGrid }/>
                 <Route path="/character/comics/:comicId" component={ ComicCardDetail }/>
                 <Route path="/comic" component={ ComicsModal }/>
                 <Route component={NotFound}/>
