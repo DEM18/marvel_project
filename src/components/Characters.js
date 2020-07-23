@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getCharacters, getCharactersByName, addFavoriteCharacter } from 'actions/index';
+
 import CardsGrid from 'components/cardsgrid/CardsGrid';
 import ComicsModal from 'components/comicsModal/ComicsModal';
 import './Characters.scss';
@@ -35,25 +36,6 @@ class Characters extends React.Component {
         this.onFavoriteBtnClick = this.onFavoriteBtnClick.bind(this);
     }
 
-    onCharacterCardClick( characterId ) {
-       this.setState( prevState => ({
-           showComicsModal: !prevState.showComicsModal,
-           characterIdSelected: characterId
-       }));
-    }
-
-    onFavoriteBtnClick( characterId ) {
-        
-        this.props.addFavoriteCharacter( characterId );
-
-    }
- 
-    onCloseBtnClick(){
-        this.setState( prevState => ({
-            showComicsModal: !prevState.showComicsModal,
-        }));
-    }
-
     componentDidMount() {
         this.props.getCharacters();
     }
@@ -75,6 +57,26 @@ class Characters extends React.Component {
             </div>
         )
     }
+
+
+    onCharacterCardClick( characterId ) {
+        this.setState( prevState => ({
+            showComicsModal: !prevState.showComicsModal,
+            characterIdSelected: characterId
+        }));
+     }
+ 
+     onFavoriteBtnClick( characterId ) {
+         
+         this.props.addFavoriteCharacter( characterId );
+ 
+     }
+  
+     onCloseBtnClick(){
+         this.setState( prevState => ({
+             showComicsModal: !prevState.showComicsModal,
+         }));
+     }
 }
 
 export default connect( mapStateToProps, mapDispatchToProps )( Characters );

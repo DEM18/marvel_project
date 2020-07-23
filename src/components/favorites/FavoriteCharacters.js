@@ -11,11 +11,7 @@ const mapStateToProps = ( state ) => {
 }
 
 class FavoriteCharacters extends React.Component {
-    constructor( props ){
-        super( props );
 
-        
-    }
     render() {
         return(
             <div>

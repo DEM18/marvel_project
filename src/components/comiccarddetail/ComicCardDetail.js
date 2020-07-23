@@ -17,7 +17,6 @@ const mapDispatchToProps = ( dispatch ) => {
 }
 
 class ComicCardDetail extends React.Component {
-    
 
     componentDidMount(){
         this.props.getComicById( this.props.match.params.comicId );

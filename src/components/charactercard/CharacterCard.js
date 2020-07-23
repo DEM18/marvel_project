@@ -15,20 +15,6 @@ class CharacterCard extends React.Component {
         this.handleFavoriteBtnClick = this.handleFavoriteBtnClick.bind(this);
     }
 
-    handleCharacterCardClick() {
-        let characterId =  this.props.characterId;
-        this.props.onCharacterCardClick( characterId );
-    }
-
-    handleFavoriteBtnClick() {
-       let characterId =  this.props.characterId;
-        this.setState( prevState => ({
-            showRegularFontIcon: !prevState.showRegularFontIcon
-        }));
-
-       this.props.onFavoriteBtnClick( characterId );
-    }
-
     render() {
         const { backgroundImage, characterName } = this.props;
         return (
@@ -47,6 +33,20 @@ class CharacterCard extends React.Component {
                 <span className="character-card__character-name">{ characterName }</span>
             </div>
         );
+    }
+
+    handleCharacterCardClick() {
+        let characterId =  this.props.characterId;
+        this.props.onCharacterCardClick( characterId );
+    }
+
+    handleFavoriteBtnClick() {
+       let characterId =  this.props.characterId;
+        this.setState( prevState => ({
+            showRegularFontIcon: !prevState.showRegularFontIcon
+        }));
+
+       this.props.onFavoriteBtnClick( characterId );
     }
 };
 

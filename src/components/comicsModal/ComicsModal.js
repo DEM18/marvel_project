@@ -18,7 +18,6 @@ const mapDispatchToProps = ( dispatch ) => {
     };
 }
 
-
 class ComicsModal extends React.Component {
 
     componentDidMount() {
@@ -27,32 +26,33 @@ class ComicsModal extends React.Component {
 
     render() {
         const { onCloseBtnClick } = this.props;
-        let characterName = ( this.props.characters.find( character => character.id === parseInt( this.props.charactedIdSelected ))).name;
+        let characterName = ( this.props.characters.find( character => 
+            character.id === parseInt( this.props.charactedIdSelected ))).name;
         return( 
             <div className="comics-modal-wrapper">
-                        <div className="comics-modal">
-                            <div className="comics-modal__btn-close-box">
-                                <button className="comics-modal__btn-close"
-                                    onClick={ onCloseBtnClick }>
-                                    X
-                                </button>
-                            </div>
-                            <div className="comics-modal__title">
-                               { characterName }
-                            </div>
-                            <div className="comics-modal__comics-list">
-                                <div className="comics-modal__comic">
-                                    { this.props.comicsByCharacter.map( comic => {
-                                        return(
-                                            <ComicCard
-                                                key={ comic.id}
-                                                comicId={ comic.id }
-                                                title={ comic.title } 
-                                                description={ comic.description }
-                                                image={ `${comic.thumbnail.path}.${comic.thumbnail.extension}` } 
-                                            />
-                                        )
-                                    })}
+                    <div className="comics-modal">
+                        <div className="comics-modal__btn-close-box">
+                            <button className="comics-modal__btn-close"
+                                onClick={ onCloseBtnClick }>
+                                X
+                            </button>
+                        </div>
+                        <div className="comics-modal__title">
+                            { characterName }
+                        </div>
+                        <div className="comics-modal__comics-list">
+                            <div className="comics-modal__comic">
+                                { this.props.comicsByCharacter.map( comic => {
+                                    return(
+                                        <ComicCard
+                                            key={ comic.id}
+                                            comicId={ comic.id }
+                                            title={ comic.title } 
+                                            description={ comic.description }
+                                            image={ `${comic.thumbnail.path}.${comic.thumbnail.extension}` } 
+                                        />
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>

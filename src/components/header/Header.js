@@ -25,19 +25,6 @@ class Header extends React.Component {
         this.onInputChange = this.onInputChange.bind(this);
     }
 
-    onInputChange( e ){
-        const { value } = e.target;
-
-        this.setState({
-            inputValue: value
-        });
-
-        if( value.length ) {
-            this.props.getCharactersFiltered( value );
-        }
-    }
-
-
     render() {
         return(
             <div className="header">
@@ -58,6 +45,18 @@ class Header extends React.Component {
                 </Link>
             </div>
         );
+    }
+
+    onInputChange( e ){
+        const { value } = e.target;
+
+        this.setState({
+            inputValue: value
+        });
+
+        if( value.length ) {
+            this.props.getCharactersFiltered( value );
+        }
     }
 };
 
