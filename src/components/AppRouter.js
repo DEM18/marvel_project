@@ -1,23 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from 'components/header/Header';
-import CharactersGrid from 'components/charactersgrid/CharactersGrid';
-import ComicCardDetail from 'components/comiccarddetail/ComicCardDetail';
-import ComicsModal from 'components/comicsModal/ComicsModal';
-import NotFound from 'components/notfound/NotFound';
+import Characters from 'components/Characters';
 
-const AppRouter = () => (
-    <BrowserRouter>
+const AppRouter = () => {
+    return(
         <div>
-            <Header/>
-            <Switch>
-                <Route path="/characters" component={ CharactersGrid } exact={true} />
-                <Route path="/characters/:characterName" component={ CharactersGrid }/>
-                <Route path="/character/comics/:comicId" component={ ComicCardDetail }/>
-                <Route path="/comic" component={ ComicsModal }/>
-                <Route component={NotFound}/>
-            </Switch>
+            <Characters/>
         </div>
-    </BrowserRouter>
-);
+    );
+}
+
 export default AppRouter;

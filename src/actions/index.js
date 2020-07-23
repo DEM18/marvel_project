@@ -1,4 +1,5 @@
-import { CHARACTERS_LOADED, COMICS_LOADED, COMIC_LOADED, CHARACTERS_FILTERED_LOADED } from 'actions/constants';
+import { CHARACTERS_LOADED, COMICS_LOADED, COMIC_LOADED, 
+  CHARACTERS_FILTERED_LOADED, ADD_FAVORITE_CHARACTER} from 'actions/constants';
 
 export function getCharacters() {
     const options = {
@@ -53,3 +54,9 @@ export function getCharactersByName( characterName ) {
   };
 }
 
+
+export function addFavoriteCharacter( character ) {
+  return { 
+    type: ADD_FAVORITE_CHARACTER, 
+    payload: character };
+};

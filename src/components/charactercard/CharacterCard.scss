@@ -15,6 +15,28 @@
         display:block;
     }
 
+    &__btn-favorite {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 10px;
+        width: 20px;
+        height: 20px;
+        padding: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: none;
+        border: none;
+    }
+
+
+    &__btn-favorite--solid-star::after {
+        content: '\f005';
+        font-family: FontAwesome;
+        font-size: 20px;
+        color: white;
+    }
 
     &__character-name {
         font-size: 15px;
@@ -27,16 +49,20 @@
     }
 }
 
-.far.fa-star.character-card {
+.fa-star.character-card {
     position: absolute;
     top: 0;
+    color: white;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
 }
 
-.far.fa-star.character-card::before {
-    position: absolute;
-    color: azure;
-    font-size: 15px;
-    right: 15px;
-    top: 10px;
-}
+// .far.fa-star.character-card::before {
+//     position: absolute;
+//     color: azure;
+//     font-size: 15px;
+//     right: 15px;
+//     top: 10px;
+// }
 

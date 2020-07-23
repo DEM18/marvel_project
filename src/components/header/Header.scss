@@ -20,29 +20,47 @@
         width: 100%;
     }
 
+
+
     &__input {
         height: 15px;
         border: 0;
-        margin-right: 10px;
+        margin-right: 20px;
         font-size: 10px;
         padding-left: 10px;
         width: 100%;
+        border-left: 1px solid grey;
     }
 
-    &__favorites-box {
+    &__favorite-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 10px;
+        width: 20px;
+        height: 20px;
+        padding: 3px;
         display: flex;
+        justify-content: center;
         align-items: center;
+        background: none;
+        border: none;
     }
 }
 
-.fa.fa-search {
-    font-size: 12px;
+.far.fa-star.header {
+    position: absolute;
+    top: 0;
     color: grey;
-    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 25px;
+    right: 2px;
 }
-.far.fa-star {
-    font-size: 12px;
+
+.fas.fa-search {
     color: grey;
+    margin-right: 10px;
 }
 
 

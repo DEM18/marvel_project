@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCharactersByName, getCharacters } from 'actions/index';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './Header.scss';
 import logo from 'assets/images/logo.png'; 
@@ -17,7 +18,8 @@ class Header extends React.Component {
         super( props );
 
         this.state = {
-            inputValue: ''
+            inputValue: '',
+            favoriteFontIcon: 'far'
         }
 
         this.onInputChange = this.onInputChange.bind(this);
@@ -35,22 +37,25 @@ class Header extends React.Component {
         }
     }
 
+
     render() {
         return(
             <div className="header">
                 <div className="header__logo-box">
                     <img className="header__logo" src={logo} alt="logo"></img>
                 </div>
+                <i className="fas fa-search"></i>
                 <div className="header__search-bar" >
-                    <i className="fa fa-search" aria-hidden="true"></i>
                     <input className="header__input" 
                         type="text"
                         onChange={ this.onInputChange }
                     />
                 </div>
-                <div className="header__favorites-box">
-                    <i className="far fa-star"></i>
-                </div>
+                <Link to="/favorites">
+                    <button className="header__favorite-btn">
+                        <i className="far fa-star header"></i>
+                    </button>
+                </Link>
             </div>
         );
     }
